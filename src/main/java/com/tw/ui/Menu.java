@@ -13,7 +13,7 @@ public class Menu {
     public Menu(GameContext gameContext) {
         MenuItem<Commandable> newGame = root.addChild(new MenuItem<>(new NewGameCmd(gameContext)));
         MenuItem<Commandable> loadGame = root.addChild(new MenuItem<>(new LoadGameCmd(gameContext)));
-        MenuItem<Commandable> quit = root.addChild(new MenuItem<>(new QuitCmd()));
+        MenuItem<Commandable> quit = root.addChild(new MenuItem<>(new QuitCmd(gameContext)));
 
         newGame.addChild(new MenuItem<>(new GoCmd(gameContext)));
         newGame.addChild(new MenuItem<>(new HeroInfo(gameContext)));
