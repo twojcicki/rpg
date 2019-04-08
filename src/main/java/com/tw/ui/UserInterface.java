@@ -4,17 +4,16 @@ import com.tw.command.Commandable;
 import com.tw.context.GameContext;
 
 import java.util.Optional;
-import java.util.Scanner;
 
 public class UserInterface {
     private static UserInterface instance;
-    private Scanner scan;
     private Menu menu;
+    private GameContext gameContext;
 
 
     private UserInterface(GameContext gameContext) {
-        this.scan = new Scanner(System.in);
         this.menu = new Menu(gameContext);
+        this.gameContext = gameContext;
     }
 
     public static UserInterface getInstance(GameContext gameContext) {
@@ -29,8 +28,7 @@ public class UserInterface {
     }
 
     public Optional<Commandable> getCurrentCommand(){
-        while (!scan.hasNextInt()) scan.next();
-        int input = scan.nextInt();
+        int input = gameContext.getIntUserAnswer();
         return menu.getCurrentCommand(input);
     }
 
