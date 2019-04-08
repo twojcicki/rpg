@@ -28,6 +28,6 @@ public class StorageTest {
         Optional<Character> hero2 = storage.load();
         assertTrue(hero2.isPresent());
         assertEquals(hero2.get().getLevel(), hero1.getLevel());
-        assertTrue(hero2.get().getName().equals(hero1.getName()));
+        assertEquals(hero2.get().getName(),hero1.getName());
     }
 }

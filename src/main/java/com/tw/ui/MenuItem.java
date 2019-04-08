@@ -20,11 +20,6 @@ public class MenuItem<T> {
         return child;
     }
 
-    public void addChildren(List<MenuItem<T>> children) {
-        children.forEach(each -> each.setParent(this));
-        this.children.addAll(children);
-    }
-
     public List<MenuItem<T>> getChildren() {
         return children;
     }
