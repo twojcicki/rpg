@@ -17,7 +17,7 @@ public enum BehaviorType {
         return c -> c.ordinal == ordinal;
     }
 
-    private BehaviorType(int ordinal, BehaviorEvent event) {
+    BehaviorType(int ordinal, BehaviorEvent event) {
         this.event = event;
         this.ordinal = ordinal;
     }

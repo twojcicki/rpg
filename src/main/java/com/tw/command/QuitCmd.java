@@ -1,10 +1,16 @@
 package com.tw.command;
 
-public class QuitCmd implements Commandable {
+import com.tw.context.GameContext;
+
+public class QuitCmd extends Command {
+    public QuitCmd(GameContext gameContext) {
+        super(gameContext);
+    }
+
     @Override
     public void execute() {
-        System.out.println("Game is closing...");
-        System.out.println("Bye bye!!");
+        getGameContext().showMessage("Game is closing...");
+        getGameContext().showMessage("Bye bye!!");
         System.exit(0);
     }
 

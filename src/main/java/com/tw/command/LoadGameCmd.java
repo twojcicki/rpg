@@ -10,7 +10,7 @@ public class LoadGameCmd extends Command {
     @Override
     public void execute() {
         getGameContext().loadGame();
-        System.out.println("Game was loaded.");
+        getGameContext().showMessage("Game was loaded.");
     }
 
     @Override

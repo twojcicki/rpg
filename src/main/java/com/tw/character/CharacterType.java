@@ -18,7 +18,7 @@ public enum CharacterType {
         return c -> c.ordinal == ordinal;
     }
 
-    private CharacterType(boolean isForUser, int ordinal) {
+    CharacterType(boolean isForUser, int ordinal) {
         this.isForUser = isForUser;
         this.ordinal = ordinal;
     }

@@ -10,7 +10,7 @@ public class SaveGameCmd extends Command {
     @Override
     public void execute() {
         getGameContext().saveGame();
-        System.out.println("Game was saved.");
+        getGameContext().showMessage("Game was saved.");
     }
 
     @Override

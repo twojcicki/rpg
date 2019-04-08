@@ -10,7 +10,7 @@ public class BackCmd extends Command {
 
     @Override
     public void execute() {
-        System.out.println("Back!");
+        getGameContext().showMessage("Back!");
     }
 
     @Override
