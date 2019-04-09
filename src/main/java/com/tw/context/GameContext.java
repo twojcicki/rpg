@@ -1,27 +1,29 @@
 package com.tw.context;
 
 import com.tw.character.Character;
-import com.tw.character.CharacterCreator;
-import com.tw.character.CharacterType;
 import com.tw.gamerule.GameRule;
 import com.tw.storage.FileStorage;
 import com.tw.storage.Storage;
+import com.tw.ui.UserInterface;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Scanner;
 
-public class GameContext {
-    private static GameContext instance;
+public class GameContext implements Serializable {
+    private transient static GameContext instance;
 
     private Character hero;
-    private Scanner scanner;
-    private Storage storage;
+    private final transient Scanner scanner;
+    private final transient Storage storage;
     private GameRule gameRule;
+    private final transient UserInterface ui;
 
 
     private GameContext() {
         scanner = new Scanner(System.in);
         storage = new FileStorage();
+        ui = UserInterface.getInstance(this);
     }
 
     public static GameContext getInstance() {
@@ -40,11 +42,16 @@ public class GameContext {
     }
 
     public void saveGame(){
-        storage.save(hero);
+        storage.save(this);
     }
 
     public void loadGame(){
-        hero = storage.load().orElse(CharacterCreator.createCharacter(CharacterType.WARRIOR, "Player",1));
+        GameContext gameContext = storage.load();
+        if(gameContext != null) {
+            ui.setNewGame();
+            this.hero = gameContext.getHero();
+            this.gameRule = gameContext.getGameRule();
+        }
     }
 
     public void showMessage(String message, Object... args){
@@ -56,6 +63,10 @@ public class GameContext {
 
     public void setGameRule(GameRule gameRule) {
         this.gameRule = gameRule;
+    }
+
+    private GameRule getGameRule() {
+        return gameRule;
     }
 
     public boolean isGameEnd(){

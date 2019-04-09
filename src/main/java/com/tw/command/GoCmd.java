@@ -21,7 +21,7 @@ public class GoCmd extends Command {
         int input = getGameContext().getIntUserAnswer();
         BehaviorType.getByOrdinal(input);
         Optional<BehaviorType> behavior = BehaviorType.getByOrdinal(input);
-        behavior.get().getEvent().action(getGameContext(), item);
+        behavior.ifPresent(b -> b.getEvent().action(getGameContext(), item));
     }
 
     @Override

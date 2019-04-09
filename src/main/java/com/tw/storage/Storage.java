@@ -1,11 +1,9 @@
 package com.tw.storage;
 
-import com.tw.character.Character;
-
-import java.util.Optional;
+import com.tw.context.GameContext;
 
 public interface Storage {
 
-    void save(Character hero);
-    Optional<Character> load();
+    void save(GameContext gameContext);
+    GameContext load();
 }

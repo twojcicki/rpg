@@ -8,9 +8,9 @@ public enum GameRuleType {
     LEVEL_GAIN("Gain level 3", 0, new LevelGain()),
     MONSTER_KILLED("Kill 3 monster", 1, new MonsterKilled());
 
-    private String description;
-    private int ordinal;
-    private GameRule gameRule;
+    private final String description;
+    private final int ordinal;
+    private final GameRule gameRule;
 
     GameRuleType(String description, int ordinal, GameRule gameRule) {
         this.gameRule = gameRule;
@@ -39,7 +39,7 @@ public enum GameRuleType {
         return gameRule;
     }
 
-    public String getInfo(){
+    private String getInfo(){
         return description;
     }
 }

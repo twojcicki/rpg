@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public class UserInterface {
     private static UserInterface instance;
-    private Menu menu;
-    private GameContext gameContext;
+    private final Menu menu;
+    private final GameContext gameContext;
 
 
     private UserInterface(GameContext gameContext) {
@@ -30,6 +30,10 @@ public class UserInterface {
     public Optional<Commandable> getCurrentCommand(){
         int input = gameContext.getIntUserAnswer();
         return menu.getCurrentCommand(input);
+    }
+
+    public void setNewGame(){
+        menu.setNewGame();
     }
 
 }

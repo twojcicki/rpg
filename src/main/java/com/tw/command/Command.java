@@ -2,14 +2,14 @@ package com.tw.command;
 
 import com.tw.context.GameContext;
 
-public abstract class Command implements Commandable {
-    private GameContext gameContext;
+abstract class Command implements Commandable {
+    private final GameContext gameContext;
 
-    public Command(GameContext gameContext) {
+    Command(GameContext gameContext) {
         this.gameContext = gameContext;
     }
 
-    public GameContext getGameContext() {
+    GameContext getGameContext() {
         return gameContext;
     }
 }

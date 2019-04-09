@@ -10,10 +10,10 @@ public enum CharacterType {
     GHOST(false, 3),
     DRAGON(false, 4);
 
-    private boolean isForUser;
-    private int ordinal;
+    private final boolean isForUser;
+    private final int ordinal;
 
-    private static Predicate<CharacterType> forUser = c -> c.isForUser;
+    private static final Predicate<CharacterType> forUser = c -> c.isForUser;
     private static Predicate<CharacterType> byOrdinal(int ordinal) {
         return c -> c.ordinal == ordinal;
     }

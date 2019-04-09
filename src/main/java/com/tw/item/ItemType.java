@@ -9,13 +9,13 @@ public enum ItemType {
     GHOST(1),
     ELIXIR(2);
 
-    private int ordinal;
+    private final int ordinal;
 
     private static Predicate<ItemType> byOrdinal(int ordinal) {
         return c -> c.ordinal == ordinal;
     }
 
-    private ItemType(int ordinal) {
+    ItemType(int ordinal) {
         this.ordinal = ordinal;
     }
 

@@ -15,7 +15,7 @@ public class Character implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -23,7 +23,7 @@ public class Character implements Serializable {
         return power;
     }
 
-    public void setPower(double power) {
+    protected void setPower(double power) {
         this.power = power;
     }
 
@@ -31,7 +31,7 @@ public class Character implements Serializable {
         return mana;
     }
 
-    public void setMana(double mana) {
+    protected void setMana(double mana) {
         this.mana = mana;
     }
 
@@ -39,7 +39,7 @@ public class Character implements Serializable {
         return level;
     }
 
-    public void setLevel(int level) {
+    protected void setLevel(int level) {
         this.level = level;
     }
 

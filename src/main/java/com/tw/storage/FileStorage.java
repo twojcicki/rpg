@@ -1,19 +1,18 @@
 package com.tw.storage;
 
-import com.tw.character.Character;
+import com.tw.context.GameContext;
 
 import java.io.*;
-import java.util.Optional;
 
 public class FileStorage implements Storage {
     @Override
-    public void save(Character hero) {
+    public void save(GameContext gameContext) {
         try {
             FileOutputStream fileOutputStream
-                    = new FileOutputStream("hero.dat");
+                    = new FileOutputStream("rpggame.dat");
             ObjectOutputStream objectOutputStream
                     = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(hero);
+            objectOutputStream.writeObject(gameContext);
             objectOutputStream.flush();
             objectOutputStream.close();
         }catch(FileNotFoundException ex){
@@ -24,14 +23,14 @@ public class FileStorage implements Storage {
     }
 
     @Override
-    public Optional<Character> load() {
-        Character hero = null;
+    public GameContext load() {
+        GameContext gameContext = null;
         try {
             FileInputStream fileInputStream
-                    = new FileInputStream("hero.dat");
+                    = new FileInputStream("rpggame.dat");
             ObjectInputStream objectInputStream
                     = new ObjectInputStream(fileInputStream);
-            hero = (Character) objectInputStream.readObject();
+            gameContext = (GameContext)objectInputStream.readObject();
             objectInputStream.close();
         } catch (FileNotFoundException ex) {
             System.out.println("File to load game is not avaliable.");
@@ -40,6 +39,6 @@ public class FileStorage implements Storage {
         } catch (ClassNotFoundException ex){
             System.out.println("Inproper type of save game file.");
         }
-        return hero != null ? Optional.of(hero): Optional.empty();
+        return gameContext;
     }
 }

@@ -6,14 +6,15 @@ import com.tw.context.GameContext;
 import java.util.Optional;
 
 public class Menu {
-    private MenuItem<Commandable> root = new MenuItem<>(null);
     private MenuItem<Commandable> currentLevel;
+    private final MenuItem<Commandable> newGame;
 
 
     public Menu(GameContext gameContext) {
-        MenuItem<Commandable> newGame = root.addChild(new MenuItem<>(new NewGameCmd(gameContext)));
-        MenuItem<Commandable> loadGame = root.addChild(new MenuItem<>(new LoadGameCmd(gameContext)));
-        MenuItem<Commandable> quit = root.addChild(new MenuItem<>(new QuitCmd(gameContext)));
+        MenuItem<Commandable> root = new MenuItem<>(null);
+        newGame = root.addChild(new MenuItem<>(new NewGameCmd(gameContext)));
+        root.addChild(new MenuItem<>(new LoadGameCmd(gameContext)));
+        root.addChild(new MenuItem<>(new QuitCmd(gameContext)));
 
         newGame.addChild(new MenuItem<>(new GoCmd(gameContext)));
         newGame.addChild(new MenuItem<>(new HeroInfo(gameContext)));
@@ -41,5 +42,9 @@ public class Menu {
             currentLevel = item;
         }
         return Optional.of(item.getData());
+    }
+
+    void setNewGame(){
+        currentLevel = newGame;
     }
 }

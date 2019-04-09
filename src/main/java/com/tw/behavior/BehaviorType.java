@@ -10,8 +10,8 @@ public enum BehaviorType {
     FIGHT(2, new Fight()),
     GIVEUP(3, new GiveUp());
 
-    private BehaviorEvent event;
-    private int ordinal;
+    private final BehaviorEvent event;
+    private final int ordinal;
 
     private static Predicate<BehaviorType> byOrdinal(int ordinal) {
         return c -> c.ordinal == ordinal;

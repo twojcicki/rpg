@@ -6,7 +6,7 @@ import com.tw.ui.UserInterface;
 
 import java.util.Optional;
 
-public class RPGGame {
+class RPGGame {
     public static void main(String[] args) {
         GameContext gameContext = GameContext.getInstance();
         UserInterface ui = UserInterface.getInstance(gameContext);

@@ -3,11 +3,10 @@ package com.tw.gamerule;
 import com.tw.context.GameContext;
 
 public class MonsterKilled implements GameRule {
-    private final int monsterKilled = 3;
-
 
     @Override
     public boolean checkEndGame(GameContext gameContext) {
+        int monsterKilled = 3;
         boolean levelGain = false;
         if(gameContext.getHero().isAlive() && gameContext.getHero().getMonsterKilled() == monsterKilled){
             levelGain = true;

@@ -3,10 +3,9 @@ package com.tw.gamerule;
 import com.tw.context.GameContext;
 
 public class LevelGain implements GameRule {
-    private final int level = 3;
-
     @Override
     public boolean checkEndGame(GameContext gameContext) {
+        int level = 3;
         boolean levelGain = false;
         if(gameContext.getHero().isAlive() && gameContext.getHero().getLevel() == level){
             levelGain = true;
