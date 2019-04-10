@@ -71,10 +71,10 @@ public class GameContext implements Serializable {
 
     public boolean isGameEnd(){
         boolean endGame = false;
-        if(!hero.isAlive()){
+        if(hero != null && !hero.isAlive()){
             showMessage("Hero is dead! You lose the game!");
             endGame = true;
-        } else if(gameRule.checkEndGame(this)){
+        } else if(hero != null && gameRule.checkEndGame(this)){
             endGame = true;
         }
         return endGame;

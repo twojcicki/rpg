@@ -1,6 +1,5 @@
 package com.tw.item;
 
-import com.tw.behavior.Behavior;
 import com.tw.character.Character;
 import com.tw.context.GameContext;
 

@@ -1,7 +1,5 @@
 package com.tw.item;
 
-import com.tw.behavior.Behavior;
-
 import java.util.Random;
 
 public class ItemCreator {

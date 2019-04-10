@@ -1,6 +1,6 @@
 package test.item;
 
-import com.tw.behavior.Behavior;
+import com.tw.item.Behavior;
 import com.tw.item.ItemCreator;
 import org.junit.Test;
 

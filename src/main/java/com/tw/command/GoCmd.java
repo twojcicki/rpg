@@ -1,6 +1,6 @@
 package com.tw.command;
 
-import com.tw.behavior.Behavior;
+import com.tw.item.Behavior;
 import com.tw.behavior.BehaviorType;
 import com.tw.context.GameContext;
 import com.tw.item.ItemCreator;

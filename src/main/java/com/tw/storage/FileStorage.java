@@ -16,9 +16,9 @@ public class FileStorage implements Storage {
             objectOutputStream.flush();
             objectOutputStream.close();
         }catch(FileNotFoundException ex){
-            System.out.println("File to save game is not avaliable.");
+            System.out.println("File to save game is not available.");
         } catch (IOException ex){
-            System.out.println("Save game is imposible.");
+            System.out.println("Save game is impossible.");
         }
     }
 
@@ -35,9 +35,9 @@ public class FileStorage implements Storage {
         } catch (FileNotFoundException ex) {
             System.out.println("File to load game is not avaliable.");
         } catch (IOException ex){
-            System.out.println("Save game is imposible.");
+            System.out.println("Load game is imposible.");
         } catch (ClassNotFoundException ex){
-            System.out.println("Inproper type of save game file.");
+            System.out.println("Incorrect type of save game file.");
         }
         return gameContext;
     }

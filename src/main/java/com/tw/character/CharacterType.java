@@ -5,21 +5,16 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public enum CharacterType {
-    WARRIOR(true, 1),
-    WIZARD(true, 2),
-    GHOST(false, 3),
-    DRAGON(false, 4);
+    WARRIOR(1),
+    WIZARD(2);
 
-    private final boolean isForUser;
     private final int ordinal;
 
-    private static final Predicate<CharacterType> forUser = c -> c.isForUser;
     private static Predicate<CharacterType> byOrdinal(int ordinal) {
         return c -> c.ordinal == ordinal;
     }
 
-    CharacterType(boolean isForUser, int ordinal) {
-        this.isForUser = isForUser;
+    CharacterType(int ordinal) {
         this.ordinal = ordinal;
     }
 
@@ -29,7 +24,7 @@ public enum CharacterType {
 
     public static String getUserInfo(){
         StringBuilder sb = new StringBuilder();
-        stream().filter(forUser).forEach(c -> sb.append(c.ordinal).append(" - ").append(c.name()).append("\n"));
+        stream().forEach(c -> sb.append(c.ordinal).append(" - ").append(c.name()).append("\n"));
         return sb.toString();
     }
 

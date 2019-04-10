@@ -29,13 +29,13 @@ public class Dragon extends Monster {
 
     @Override
     public void take(GameContext gameContext) {
-        gameContext.showMessage("It is not good idea to take ghost. You lose 100 health's points");
+        gameContext.showMessage("It is not good idea to take dragon. You lose 100 health's points");
         gameContext.getHero().setHealth(gameContext.getHero().getHealth()-100);
     }
 
     @Override
     public void giveUp(GameContext gameContext) {
-        gameContext.showMessage("Ghost casts a charm on you. You lose 50 health's points");
+        gameContext.showMessage("Dragon casts a charm on you. You lose 10 health's points");
         gameContext.getHero().setHealth(gameContext.getHero().getHealth()-50);
     }
 }

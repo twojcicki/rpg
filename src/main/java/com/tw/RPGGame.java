@@ -10,7 +10,10 @@ class RPGGame {
     public static void main(String[] args) {
         GameContext gameContext = GameContext.getInstance();
         UserInterface ui = UserInterface.getInstance(gameContext);
-
+        String info = "Once upon a time the king announced the tournament.\n";
+        info += "The winner will get the princess for his wife.\n";
+        info += "Choose your name and stand to fight!\n";
+        gameContext.showMessage(info);
         do{
             gameContext.showMessage(ui.getMenuInfo());
             gameContext.showMessage("Write command: ");

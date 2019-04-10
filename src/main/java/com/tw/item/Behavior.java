@@ -1,4 +1,4 @@
-package com.tw.behavior;
+package com.tw.item;
 
 import com.tw.context.GameContext;
 
